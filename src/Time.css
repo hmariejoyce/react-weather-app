@@ -1,3 +1,4 @@
-Time div {
-  font-size: 50px;
+.time {
+  text-align: right;
+  font-size: 15px;
 }

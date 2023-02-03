@@ -6,7 +6,10 @@ import "./Forecast.css";
 
 export default function Forecast() {
   return (
-    <Container>
+    <Container
+      className="fivedays-container"
+      style={{ backgroundColor: "rgba(125, 125, 125, 0.2)" }}
+    >
       <Row>
         <Col>
           <div className="days">Fri</div>

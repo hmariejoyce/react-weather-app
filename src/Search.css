@@ -1,7 +1,36 @@
+.WeatherApp {
+  margin-top: 35px;
+}
+
 li {
   display: block;
   text-align: center;
 }
-body {
-  margin-top: 35px;
+
+.container {
+  margin: 20px 15px 20px 15px;
+  border-radius: 20px;
+  font-family: "Open Sans", sans-serif;
+  color: black;
+  padding: 10px;
+  box-shadow: 5px 5px 5px rgb(194, 193, 193);
+}
+
+.city {
+  color: black;
+  font-size: 30px;
+  text-align: center;
+  margin: 0px;
+  font-family: "Exo 2", sans-serif;
+  font-weight: bolder;
+}
+.description {
+  list-style: none;
+  padding-top: 10px;
+  padding-left: 1rem;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 40px;
+}
+.feature {
+  margin-top: 7px;
 }

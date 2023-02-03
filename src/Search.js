@@ -57,20 +57,23 @@ export default function Search(props) {
       <div className="WeatherApp">
         <div className="Search">{form}</div>
         <div className="MainWeather">
-          <Time />
-          <Container>
+          <Container
+            className="container"
+            style={{ backgroundColor: "rgba(125, 125, 125, 0.2)" }}
+          >
+            <Time />
             <Row>
               <Col sm="6">
-                <li>{city}</li>
+                <li className="city">{city}</li>
                 <li>
                   <img src={icon} alt={description} />
                 </li>
-                <li>{temperature}°C | °F</li>
+                <li>{temperature} °C | °F</li>
                 <li style={{ textTransform: "capitalize" }}>{description}</li>
               </Col>
-              <Col sm="6">
-                <li>Humidity: {humidity}%</li>
-                <li>Wind: {wind} Meters/Sec</li>
+              <Col sm="6" className="description">
+                <li className="feature">Humidity: {humidity}%</li>
+                <li className="feature">Wind: {wind} Meters/Sec</li>
               </Col>
             </Row>
           </Container>
