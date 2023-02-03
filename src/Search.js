@@ -36,6 +36,9 @@ export default function Search(props) {
 
   let form = (
     <form onSubmit={handleSubmit}>
+      <button type="submit" className="currentlocation">
+        Current Location
+      </button>
       <input
         type="search"
         placeholder="Type the city..."
@@ -49,7 +52,7 @@ export default function Search(props) {
     return (
       <div className="Search">
         {form}
-        <ul className="weatherDetails">
+        <div className="weatherDetails">
           <li>Temperature: {temperature}°C</li>
           <li style={{ textTransform: "capitalize" }}>
             Description: {description}
@@ -59,7 +62,7 @@ export default function Search(props) {
           <li>
             <img src={icon} alt={description} />
           </li>
-        </ul>
+        </div>
       </div>
     );
   } else {
