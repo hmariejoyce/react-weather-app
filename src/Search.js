@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Container, Row, Col } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Time from "./Time";
 
-import "./SearchStyle.css";
+import "./Search.css";
+import Forecast from "./Forecast";
 
 export default function Search(props) {
   let [city, setCity] = useState("");
@@ -50,19 +54,28 @@ export default function Search(props) {
 
   if (loaded) {
     return (
-      <div className="Search">
-        {form}
-        <div className="weatherDetails">
-          <li>Temperature: {temperature}°C</li>
-          <li style={{ textTransform: "capitalize" }}>
-            Description: {description}
-          </li>
-          <li>Humidity: {humidity}%</li>
-          <li>Wind: {wind} Meters/Sec</li>
-          <li>
-            <img src={icon} alt={description} />
-          </li>
+      <div className="WeatherApp">
+        <div className="Search">{form}</div>
+        <div className="MainWeather">
+          <Time />
+          <Container>
+            <Row>
+              <Col sm="6">
+                <li>{city}</li>
+                <li>
+                  <img src={icon} alt={description} />
+                </li>
+                <li>{temperature}°C | °F</li>
+                <li style={{ textTransform: "capitalize" }}>{description}</li>
+              </Col>
+              <Col sm="6">
+                <li>Humidity: {humidity}%</li>
+                <li>Wind: {wind} Meters/Sec</li>
+              </Col>
+            </Row>
+          </Container>
         </div>
+        <Forecast />
       </div>
     );
   } else {

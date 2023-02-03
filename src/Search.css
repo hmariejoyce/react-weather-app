@@ -2,3 +2,6 @@ li {
   display: block;
   text-align: center;
 }
+body {
+  margin-top: 35px;
+}
