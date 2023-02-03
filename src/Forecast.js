@@ -9,8 +9,8 @@ export default function Forecast() {
     <Container>
       <Row>
         <Col>
-          <div>Fri</div>
-          <div>
+          <div className="days">Fri</div>
+          <div className="forecasticons">
             <img
               src="http://openweathermap.org/img/wn/10d.png"
               alt="rain"
@@ -19,8 +19,8 @@ export default function Forecast() {
           <div>42° 29°</div>
         </Col>
         <Col>
-          <div>Sat</div>
-          <div>
+          <div className="days">Sat</div>
+          <div className="forecasticons">
             <img
               src="http://openweathermap.org/img/wn/01d.png"
               alt="clear sky"
@@ -29,8 +29,8 @@ export default function Forecast() {
           <div>36° 26°</div>
         </Col>
         <Col>
-          <div>Sun</div>
-          <div>
+          <div className="days">Sun</div>
+          <div className="forecasticons">
             <img
               src="http://openweathermap.org/img/wn/10d.png"
               alt="rain"
@@ -39,8 +39,8 @@ export default function Forecast() {
           <div>50° 36°</div>
         </Col>
         <Col>
-          <div>Mon</div>
-          <div>
+          <div className="days">Mon</div>
+          <div className="forecasticons">
             <img
               src="http://openweathermap.org/img/wn/10d.png"
               alt="rain"
@@ -49,8 +49,8 @@ export default function Forecast() {
           <div>50° 44°</div>
         </Col>
         <Col>
-          <div>Tue</div>
-          <div>
+          <div className="days">Tue</div>
+          <div className="forecasticons">
             <img
               src="http://openweathermap.org/img/wn/04d.png"
               alt="broken clouds"
