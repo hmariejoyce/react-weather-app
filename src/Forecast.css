@@ -15,8 +15,8 @@
   font-size: 15px;
 }
 
-.forecasticons {
-  max-width: 100px;
+.forecasticons img {
+  width: 70px;
   display: block;
   margin: 0 auto;
   margin-bottom: -5px;

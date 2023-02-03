@@ -1,12 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Days+One&family=Exo+2:ital,wght@0,100;0,400;0,700;1,300;1,600&family=Montserrat:ital,wght@0,100;0,400;0,800;1,100&display=swap");
 
 .App {
+  margin: auto;
   margin-top: 35px;
   max-width: 600px;
   text-align: center;
 }
 .sourceCode {
   font-size: 10px;
+  margin-top: 40px;
+}
+
+.searchMessage {
+  margin: auto;
+  margin-top: 35px;
+  max-width: 500px;
+  padding: 15px;
+  border-radius: 20px;
+  color: black;
+  text-align: center;
+  box-shadow: 5px 5px 5px rgb(194, 193, 193);
+  font-family: "Montserrat", sans-serif;
 }
 
 .App-logo {

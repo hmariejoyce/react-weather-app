@@ -39,13 +39,13 @@ export default function Search(props) {
   }
 
   let form = (
-    <form onSubmit={handleSubmit}>
+    <form className="searchSection" onSubmit={handleSubmit}>
       <button type="submit" className="currentButton">
         Current Location
       </button>
       <input
         type="search"
-        placeholder="Type the city..."
+        placeholder="Enter city here..."
         onChange={searchCity}
       />
       <button type="submit" className="searchButton">
