@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Days+One&family=Exo+2:ital,wght@0,100;0,400;0,700;1,300;1,600&family=Montserrat:ital,wght@0,100;0,400;0,800;1,100&display=swap");
+
 .App {
+  margin-top: 35px;
   max-width: 600px;
   text-align: center;
+}
+.sourceCode {
+  font-size: 10px;
 }
 
 .App-logo {

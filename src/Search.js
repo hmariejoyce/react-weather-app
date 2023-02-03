@@ -40,7 +40,7 @@ export default function Search(props) {
 
   let form = (
     <form onSubmit={handleSubmit}>
-      <button type="submit" className="currentlocation">
+      <button type="submit" className="currentButton">
         Current Location
       </button>
       <input
@@ -48,7 +48,9 @@ export default function Search(props) {
         placeholder="Type the city..."
         onChange={searchCity}
       />
-      <button type="submit">Search</button>
+      <button type="submit" className="searchButton">
+        Search
+      </button>
     </form>
   );
 
@@ -68,10 +70,21 @@ export default function Search(props) {
                 <li>
                   <img src={icon} alt={description} />
                 </li>
-                <li>{temperature} °C | °F</li>
-                <li style={{ textTransform: "capitalize" }}>{description}</li>
+                <li>
+                  <span className="maintemp">{temperature}</span>{" "}
+                  <span className="tempFormat">
+                    <span className="celsius">°C </span>|{" "}
+                    <span className="fahrenheit">°F</span>
+                  </span>
+                </li>
+                <li
+                  className="description"
+                  style={{ textTransform: "capitalize" }}
+                >
+                  {description}
+                </li>
               </Col>
-              <Col sm="6" className="description">
+              <Col sm="6" className="addfeatures">
                 <li className="feature">Humidity: {humidity}%</li>
                 <li className="feature">Wind: {wind} Meters/Sec</li>
               </Col>
