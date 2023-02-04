@@ -6,21 +6,16 @@
   max-width: 600px;
   text-align: center;
 }
+
+.weatherAppTitle {
+  font-size: 50px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 20px;
+}
+
 .sourceCode {
   font-size: 10px;
   margin-top: 40px;
-}
-
-.searchMessage {
-  margin: auto;
-  margin-top: 35px;
-  max-width: 500px;
-  padding: 15px;
-  border-radius: 20px;
-  color: black;
-  text-align: center;
-  box-shadow: 5px 5px 5px rgb(194, 193, 193);
-  font-family: "Montserrat", sans-serif;
 }
 
 .App-logo {
