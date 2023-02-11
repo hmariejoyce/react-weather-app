@@ -1,100 +1,65 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Container, Row, Col } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Time from "./Time";
-
 import "./Search.css";
 import Forecast from "./Forecast";
+import Weather from "./Weather";
 
 export default function Search(props) {
-  let [city, setCity] = useState("");
-  let [temperature, setTemperature] = useState("");
-  let [description, setDescription] = useState("");
-  let [humidity, setHumidity] = useState("");
-  let [wind, setWind] = useState("");
-  let [icon, setIcon] = useState("");
-  let [loaded, setLoaded] = useState(false);
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
-  function showWeather(response) {
-    setLoaded(true);
-    setTemperature(Math.round(response.data.main.temp));
-    setHumidity(response.data.main.humidity);
-    setWind(Math.round(response.data.wind.speed));
-    setDescription(response.data.weather[0].description);
-    setIcon(
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      coordinates: response.data.coord,
+      temperature: Math.round(response.data.main.temp),
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+    });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "0705f31a8b7e6dd794815d8c30778db8";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showWeather);
+    search();
   }
 
-  function searchCity(event) {
+  function handleCityChange(event) {
     setCity(event.target.value);
   }
 
-  let form = (
-    <form className="searchSection" onSubmit={handleSubmit}>
-      <button type="submit" className="currentButton">
-        Current Location
-      </button>
-      <input
-        type="search"
-        placeholder="Enter city here..."
-        onChange={searchCity}
-      />
-      <button type="submit" className="searchButton">
-        Search
-      </button>
-    </form>
-  );
+  function search() {
+    const apiKey = "0705f31a8b7e6dd794815d8c30778db8";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
 
-  if (loaded) {
+  if (weatherData.ready) {
     return (
-      <div className="WeatherApp">
-        <div className="Search">{form}</div>
-        <div className="MainWeather">
-          <Container
-            className="container"
-            style={{ backgroundColor: "rgba(125, 125, 125, 0.2)" }}
-          >
-            <Time />
-            <Row>
-              <Col sm="6">
-                <li className="city">{city}</li>
-                <li>
-                  <img src={icon} alt={description} />
-                </li>
-                <li>
-                  <span className="maintemp">{temperature}</span>{" "}
-                  <span className="tempFormat">
-                    <span className="celsius">°C </span>|{" "}
-                    <span className="fahrenheit">°F</span>
-                  </span>
-                </li>
-                <li
-                  className="description"
-                  style={{ textTransform: "capitalize" }}
-                >
-                  {description}
-                </li>
-              </Col>
-              <Col sm="6" className="addfeatures">
-                <li className="feature">Humidity: {humidity}%</li>
-                <li className="feature">Wind: {wind} Meters/Sec</li>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-        <Forecast />
+      <div className="Weather">
+        <form className="searchSection" onSubmit={handleSubmit}>
+          <button type="submit" className="currentButton">
+            Current Location
+          </button>
+          <input
+            type="search"
+            placeholder="Enter city here..."
+            onChange={handleCityChange}
+          />
+          <button type="submit" className="searchButton">
+            Search
+          </button>
+        </form>
+        <Weather data={weatherData} />
+        <Forecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
-    return <div className="Search">{form}</div>;
+    search();
+    return "Loading...";
   }
 }
