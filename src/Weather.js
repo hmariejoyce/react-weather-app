@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Weather.css";
+import WeatherIcon from "./Weathericons";
 
 export default function Weather(props) {
   return (
@@ -19,7 +20,7 @@ export default function Weather(props) {
             <Col sm="6">
               <li className="city">{props.data.city}</li>
               <li>
-                <img src={props.data.icon} alt={props.data.description} />
+                <WeatherIcon code={props.data.icon} size={52} />
               </li>
               <li>
                 <span className="maintemp">{props.data.temperature}</span>{" "}
@@ -37,7 +38,9 @@ export default function Weather(props) {
             </Col>
             <Col sm="6" className="addfeatures">
               <li className="feature">Humidity: {props.data.humidity}%</li>
-              <li className="feature">Wind: {props.data.wind} Meters/Sec</li>
+              <li className="feature">
+                Wind: {Math.round(props.data.wind)} Meters/Sec
+              </li>
             </Col>
           </Row>
         </Container>
