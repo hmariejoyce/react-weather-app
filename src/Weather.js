@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Weather.css";
 import WeatherIcon from "./Weathericons";
+import WeatherConversion from "./WeatherConversion";
 
 export default function Weather(props) {
   return (
@@ -23,11 +24,7 @@ export default function Weather(props) {
                 <WeatherIcon code={props.data.icon} size={52} />
               </li>
               <li>
-                <span className="maintemp">{props.data.temperature}</span>{" "}
-                <span className="tempFormat">
-                  <span className="celsius">°C </span>|{" "}
-                  <span className="fahrenheit">°F</span>
-                </span>
+                <WeatherConversion celsius={props.data.temperature} />
               </li>
               <li
                 className="description"
