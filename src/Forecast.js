@@ -103,6 +103,6 @@ export default function Forecast(props) {
 
     axios.get(apiUrl).then(handleResponse);
 
-    return false;
+    return null;
   }
 }
