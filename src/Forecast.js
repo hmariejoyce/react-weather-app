@@ -33,7 +33,8 @@ export default function Forecast(props) {
               />
             </div>
             <div>
-              {forecast[0].temp.max}° {forecast[0].temp.min}°
+              {Math.round(forecast[0].temp.max)}°{" "}
+              {Math.round(forecast[0].temp.min)}°
             </div>
           </Col>
           <Col>
@@ -47,7 +48,8 @@ export default function Forecast(props) {
               />
             </div>
             <div>
-              {forecast[1].temp.max}° {forecast[1].temp.min}°
+              {Math.round(forecast[1].temp.max)}°{" "}
+              {Math.round(forecast[1].temp.min)}°
             </div>
           </Col>
           <Col>
@@ -61,7 +63,8 @@ export default function Forecast(props) {
               />
             </div>
             <div>
-              {forecast[2].temp.max}° {forecast[2].temp.min}°
+              {Math.round(forecast[2].temp.max)}°{" "}
+              {Math.round(forecast[2].temp.min)}°
             </div>
           </Col>
           <Col>
@@ -75,7 +78,8 @@ export default function Forecast(props) {
               />
             </div>
             <div>
-              {forecast[3].temp.max}° {forecast[3].temp.min}°
+              {Math.round(forecast[3].temp.max)}°{" "}
+              {Math.round(forecast[3].temp.min)}°
             </div>
           </Col>
           <Col>
@@ -89,17 +93,18 @@ export default function Forecast(props) {
               />
             </div>
             <div>
-              {forecast[4].temp.max}° {forecast[4].temp.min}°
+              {Math.round(forecast[4].temp.max)}°{" "}
+              {Math.round(forecast[4].temp.min)}°
             </div>
           </Col>
         </Row>
       </Container>
     );
   } else {
-    let apiKey = "0705f31a8b7e6dd794815d8c30778db8";
+    let apiKey = "5ef4de8cd6b7fefcd7c42f98cf464ce8";
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
 
