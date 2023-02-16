@@ -26,7 +26,7 @@ export default function Forecast(props) {
             <div className="days">{forecast[0].dt}</div>
             <div className="forecasticons">
               <ReactAnimatedWeather
-                icon="CLEAR_DAY"
+                icon={forecast[0].weather[0].icon}
                 color="#1e1e1e"
                 size={52}
                 animate={true}
