@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
 
 import "./Forecast.css";
+import ForecastDay from "./ForecastDay";
 
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
 
   function handleResponse(response) {
     setForecast(response.data.daily);
@@ -23,79 +27,19 @@ export default function Forecast(props) {
       >
         <Row>
           <Col>
-            <div className="days">{forecast[0].dt}</div>
-            <div className="forecasticons">
-              <ReactAnimatedWeather
-                icon={forecast[0].weather[0].icon}
-                color="#1e1e1e"
-                size={52}
-                animate={true}
-              />
-            </div>
-            <div>
-              {Math.round(forecast[0].temp.max)}°{" "}
-              {Math.round(forecast[0].temp.min)}°
-            </div>
+            <ForecastDay data={forecast[1]} />
           </Col>
           <Col>
-            <div className="days">{forecast[1].dt}</div>
-            <div className="forecasticons">
-              <ReactAnimatedWeather
-                icon="RAIN"
-                color="#1e1e1e"
-                size={52}
-                animate={true}
-              />
-            </div>
-            <div>
-              {Math.round(forecast[1].temp.max)}°{" "}
-              {Math.round(forecast[1].temp.min)}°
-            </div>
+            <ForecastDay data={forecast[2]} />
           </Col>
           <Col>
-            <div className="days">{forecast[2].dt}</div>
-            <div className="forecasticons">
-              <ReactAnimatedWeather
-                icon="SLEET"
-                color="#1e1e1e"
-                size={52}
-                animate={true}
-              />
-            </div>
-            <div>
-              {Math.round(forecast[2].temp.max)}°{" "}
-              {Math.round(forecast[2].temp.min)}°
-            </div>
+            <ForecastDay data={forecast[3]} />
           </Col>
           <Col>
-            <div className="days">{forecast[3].dt}</div>
-            <div className="forecasticons">
-              <ReactAnimatedWeather
-                icon="SNOW"
-                color="#1e1e1e"
-                size={52}
-                animate={true}
-              />
-            </div>
-            <div>
-              {Math.round(forecast[3].temp.max)}°{" "}
-              {Math.round(forecast[3].temp.min)}°
-            </div>
+            <ForecastDay data={forecast[4]} />
           </Col>
           <Col>
-            <div className="days">{forecast[4].dt}</div>
-            <div className="forecasticons">
-              <ReactAnimatedWeather
-                icon="FOG"
-                color="#1e1e1e"
-                size={52}
-                animate={true}
-              />
-            </div>
-            <div>
-              {Math.round(forecast[4].temp.max)}°{" "}
-              {Math.round(forecast[4].temp.min)}°
-            </div>
+            <ForecastDay data={forecast[5]} />
           </Col>
         </Row>
       </Container>
