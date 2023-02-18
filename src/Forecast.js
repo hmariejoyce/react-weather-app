@@ -3,7 +3,6 @@ import { Container, Row, Col } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
-import "./Forecast.css";
 import ForecastDay from "./ForecastDay";
 
 export default function Forecast(props) {

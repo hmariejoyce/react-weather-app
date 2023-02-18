@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Days+One&family=Exo+2:ital,wght@0,100;0,400;0,700;1,300;1,600&family=Montserrat:ital,wght@0,100;0,400;0,800;1,100&display=swap");
+
+.temperature {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.minTemp {
+  color: rgb(107, 107, 107);
+}
+
+.days {
+  font-family: "Montserrat", sans-serif;
+}
