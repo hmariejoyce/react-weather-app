@@ -27,6 +27,10 @@ input {
   font-family: "Montserrat", sans-serif;
 }
 
+.searchBox {
+  width: 250px;
+}
+
 .searchButton,
 .currentButton {
   background-color: #ece3f8;
@@ -77,5 +81,14 @@ input {
 }
 .description {
   font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+.searchMain {
+  display: inline-block;
   text-align: center;
 }

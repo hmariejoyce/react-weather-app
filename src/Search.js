@@ -52,19 +52,28 @@ export default function Search(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form className="searchSection" onSubmit={handleSubmit}>
-          <button type="submit" className="currentButton" onClick={currentCity}>
-            Current Location
-          </button>
-          <input
-            type="search"
-            placeholder="Enter city here..."
-            onChange={handleCityChange}
-          />
-          <button type="submit" className="searchButton">
-            Search
-          </button>
-        </form>
+        <div className="searchMain">
+          <div className="flex">
+            <button
+              type="submit"
+              className="currentButton"
+              onClick={currentCity}
+            >
+              Current Location
+            </button>
+            <form className="searchSection" onSubmit={handleSubmit}>
+              <input
+                className="searchBox"
+                type="search"
+                placeholder="Enter city here..."
+                onChange={handleCityChange}
+              />
+              <button type="submit" className="searchButton">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
         <Weather data={weatherData} />
         <Forecast coordinates={weatherData.coordinates} />
       </div>
